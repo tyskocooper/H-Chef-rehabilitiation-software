@@ -39,18 +39,26 @@ public class HManConnection : MonoBehaviour
     }
 
     public void RunExercise(int numTargets)
-    {
-        if (!IsConnected) return;
+{
+    if (!IsConnected) return;
 
-        bool started = _comm.StartExercise(numTargets);
-        if (started)
+    bool started = _comm.StartExercise(numTargets);
+    if (started)
+    {
+        // Free-moving target: zero gain/stiffness/damping = no force applied to handle,
+        // but H-MAN will now start sending response data (location_X/Y etc.)
+        bool targetSet = _comm.SetTarget("1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0");
+
+        if (targetSet)
         {
             CurrentState = HManState.ExerciseRunning;
-            // TODO: call _comm.SetTarget(...) here for each target index —
-            // H-MAN won't produce force/response data until every target is set
+        }
+        else
+        {
+            Debug.LogError("SetTarget failed — H-MAN will not send response data.");
         }
     }
-
+}
     void FixedUpdate()
     {
         if (!IsConnected || CurrentState != HManState.ExerciseRunning) return;
