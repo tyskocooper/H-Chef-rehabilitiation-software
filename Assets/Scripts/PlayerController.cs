@@ -18,9 +18,13 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void Update(
+        
+    )
     {
         bool useHman = HManConnection.Instance != null && HManConnection.Instance.IsConnected;
+        if (useHman)
+        Debug.Log($"HMAN raw: {HManConnection.Instance.LocationX}, {HManConnection.Instance.LocationY}");
 
         Vector2? direction = useHman ? GetHmanDirection() : GetMouseDirection();
 
@@ -49,6 +53,8 @@ public class PlayerController : MonoBehaviour
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
         return ((Vector2)(mousePos - transform.position)).normalized;
     }
+
+    
 
     //void OnCollisionEnter2D(Collision2D collision)
     //{
