@@ -9,14 +9,14 @@ public class HManConnection : MonoBehaviour
     public enum HManState { Disconnected, Connected, ExerciseRunning, ExerciseStopped }
     public HManState CurrentState { get; private set; } = HManState.Disconnected;
 
-    // Live position, read from the SDK's own internal buffer each frame
+    // Location Y and X are read from HMan's SDK (DLLS)
     public float LocationX { get; private set; }
     public float LocationY { get; private set; }
 
     private ArticaresComm _comm;
 
-    private const string HMAN_IP = "192.168.102.1"; // confirm against your device's actual config
-    private const int HMAN_PORT = 3000;
+    private const string HMan_IP = "192.168.102.1"; 
+    private const int HMan_Port = 3000;
 
     void Awake()
     {
@@ -29,12 +29,12 @@ public class HManConnection : MonoBehaviour
     {
         _comm = new ArticaresComm();
 
-        bool connected = _comm.EstablishConnection(HMAN_IP, HMAN_PORT);
+        bool connected = _comm.EstablishConnection(HMan_IP, HMan_Port);
         SetConnected(connected);
 
         if (connected)
         {
-            RunExercise(1); // single target to start; expand to multi-target later
+            RunExercise(1); // single target for now BUT can add multiple targets
         }
     }
 
@@ -45,8 +45,7 @@ public class HManConnection : MonoBehaviour
     bool started = _comm.StartExercise(numTargets);
     if (started)
     {
-        // Free-moving target: zero gain/stiffness/damping = no force applied to handle,
-        // but H-MAN will now start sending response data (location_X/Y etc.)
+   
         bool targetSet = _comm.SetTarget("1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0");
 
         if (targetSet)
@@ -63,7 +62,6 @@ public class HManConnection : MonoBehaviour
     {
         if (!IsConnected || CurrentState != HManState.ExerciseRunning) return;
 
-        // SDK updates hman_data internally as messages arrive — just read it
         LocationX = _comm.hman_data.location_X;
         LocationY = _comm.hman_data.location_Y;
     }

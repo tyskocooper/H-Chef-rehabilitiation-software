@@ -5,10 +5,8 @@ public class PlayerController : MonoBehaviour
 {
     public float thrustForce = 1f;
 
-    [Tooltip("H-MAN displacement (metres) that maps to full direction magnitude. Calibrate against live device.")]
     public float hmanRange = 0.1f;
 
-    [Tooltip("Minimum displacement before H-MAN input counts as intentional (deadzone, in metres).")]
     public float hmanDeadzone = 0.005f;
 
     Rigidbody2D rb;
@@ -41,7 +39,7 @@ public class PlayerController : MonoBehaviour
         float y = HManConnection.Instance.LocationY;
         Vector2 raw = new Vector2(x, y);
 
-        if (raw.magnitude < hmanDeadzone) return null; // ignore tiny drift near origin
+        if (raw.magnitude < hmanDeadzone) return null; 
 
         return (raw / hmanRange).normalized;
     }
@@ -56,8 +54,4 @@ public class PlayerController : MonoBehaviour
 
     
 
-    //void OnCollisionEnter2D(Collision2D collision)
-    //{
-       ///= Destroy(gameObject);
-    //}
 }
