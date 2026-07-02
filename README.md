@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # UNITY HMAN
+=======
+# HMAN chef
+>>>>>>> 1f66b4ee5bde255e8e8d4c630441f61124b1aedc
 
 
 
@@ -15,14 +19,22 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
+<<<<<<< HEAD
 git remote add origin https://gitlab.cis.strath.ac.uk/qwb25169/unity-hman.git
+=======
+git remote add origin https://gitlab.cis.strath.ac.uk/qwb25169/hman-chef.git
+>>>>>>> 1f66b4ee5bde255e8e8d4c630441f61124b1aedc
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
+<<<<<<< HEAD
 * [Set up project integrations](https://gitlab.cis.strath.ac.uk/qwb25169/unity-hman/-/settings/integrations)
+=======
+* [Set up project integrations](https://gitlab.cis.strath.ac.uk/qwb25169/hman-chef/-/settings/integrations)
+>>>>>>> 1f66b4ee5bde255e8e8d4c630441f61124b1aedc
 
 ## Collaborate with your team
 
