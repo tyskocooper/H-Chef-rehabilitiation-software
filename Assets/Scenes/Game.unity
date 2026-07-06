@@ -2358,7 +2358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HmanCursor
   connection: {fileID: 10705788}
-  deadzone: 0.02
+  deadzone: 0.005
   rangeX: 0.15
   rangeY: 0.15
   origin: {fileID: 1753921686}
