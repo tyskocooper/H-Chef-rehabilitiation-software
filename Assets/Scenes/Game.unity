@@ -2290,6 +2290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2060016304}
+  - component: {fileID: 2060016305}
   m_Layer: 0
   m_Name: HMan Cursor
   m_TagString: Untagged
@@ -2313,6 +2314,26 @@ Transform:
   - {fileID: 1009892572}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2060016305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060016303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565cd61e0fe2fad4488025ec5e9ebbe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HmanCursor
+  connection: {fileID: 0}
+  deadzone: 0.02
+  rangeX: 100
+  rangeY: 100
+  origin: {fileID: 0}
+  gameWidth: 4
+  gameHeight: 3
+  smoothing: 0.15
 --- !u!1 &2101349875
 GameObject:
   m_ObjectHideFlags: 0
