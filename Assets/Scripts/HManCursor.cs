@@ -26,6 +26,16 @@ public class HmanCursor : MonoBehaviour
 
     private Vector2 _smoothedPos;
 
+    void OnGUI()
+{
+    if (connection == null) return;
+
+    GUI.Label(new Rect(10, 10, 400, 20), $"Connected: {connection.IsConnected}");
+    GUI.Label(new Rect(10, 30, 400, 20), $"Raw: {connection.LocationX:F4}, {connection.LocationY:F4}");
+    GUI.Label(new Rect(10, 50, 400, 20), $"Smoothed: {_smoothedPos.x:F4}, {_smoothedPos.y:F4}");
+    GUI.Label(new Rect(10, 70, 400, 20), $"Cursor Pos: {transform.position.x:F4}, {transform.position.y:F4}");
+}
+
     void Awake()
     {
         if (connection == null)
