@@ -2179,6 +2179,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1753921685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1753921686}
+  m_Layer: 0
+  m_Name: Cursor origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1753921686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753921685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1817059408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2326,11 +2357,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565cd61e0fe2fad4488025ec5e9ebbe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HmanCursor
-  connection: {fileID: 0}
+  connection: {fileID: 10705788}
   deadzone: 0.02
   rangeX: 100
   rangeY: 100
-  origin: {fileID: 0}
+  origin: {fileID: 1753921686}
   gameWidth: 4
   gameHeight: 3
   smoothing: 0.15
@@ -2418,7 +2449,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.22663574, g: 0.86415094, b: 0.402309, a: 1}
+  m_Color: {r: 0.8627451, g: 0.7473629, b: 0.22745097, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2608,3 +2639,4 @@ SceneRoots:
   - {fileID: 1237682922}
   - {fileID: 10705787}
   - {fileID: 2060016304}
+  - {fileID: 1753921686}
