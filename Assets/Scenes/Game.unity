@@ -2362,7 +2362,7 @@ MonoBehaviour:
   rangeX: 0.15
   rangeY: 0.15
   origin: {fileID: 1753921686}
-  gameWidth: 9
+  gameWidth: 11
   gameHeight: 6
   smoothing: 0.15
 --- !u!1 &2101349875
