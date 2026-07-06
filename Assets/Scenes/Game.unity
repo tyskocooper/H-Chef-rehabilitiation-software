@@ -2359,8 +2359,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HmanCursor
   connection: {fileID: 10705788}
   deadzone: 0.02
-  rangeX: 100
-  rangeY: 100
+  rangeX: 0.2
+  rangeY: 0.2
   origin: {fileID: 1753921686}
   gameWidth: 4
   gameHeight: 3
