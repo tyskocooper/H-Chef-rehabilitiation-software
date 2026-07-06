@@ -34,6 +34,8 @@ public class HmanCursor : MonoBehaviour
 
     void Update()
     {
+        Debug.Log($"raw: {connection.LocationX}, {connection.LocationY}");
+
         if (connection == null || !connection.IsConnected)
             return;
 
