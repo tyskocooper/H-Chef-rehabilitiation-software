@@ -23,6 +23,9 @@ public class HmanCursor : MonoBehaviour
 
 
     public float smoothing = 0.15f; // 0 = raw/instant, higher = smoother but laggier
+    
+    //mouse based cursor to be used if hman is not connected
+    public bool mouseCursor = true;
 
     private Vector2 _smoothedPos;
 
@@ -44,30 +47,48 @@ public class HmanCursor : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"raw: {connection.LocationX}, {connection.LocationY}");
 
-        if (connection == null || !connection.IsConnected)
-            return;
+        bool hmanConnected = connection !=null && connection.IsConnected;
 
-        Vector2 mapped = MapToWorld(connection.LocationX, connection.LocationY);
+         Vector2 mapped;
+
+        if (hmanConnected)
+        {
+            mapped = MapToWorld(connection.LocationX, connection.LocationY);
+        }
+        else if (mouseCursor && Camera.main != null)
+        {
+            Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);  //no 'clicking' of the mouse required. positional cooridnates only similar to hman
+       
+            Vector3 basePos = origin != null ? origin.position : Vector3.zero;
+
+            Vector2 relative = new Vector2(mouseWorld.x - basePos.x, mouseWorld.y - basePos.y);
+
+            // same paramaters as h-man movement previously establshed
+            relative.x = Mathf.Clamp(relative.x, -gameWidth, gameWidth);
+            relative.y = Mathf.Clamp(relative.y, -gameHeight, gameHeight);
+
+            mapped = relative;
+        }
+        else
+        {
+            mapped = _smoothedPos;
+        }
 
         _smoothedPos = Vector2.Lerp(_smoothedPos, mapped, 1f - smoothing);
 
-        Vector3 basePos = origin != null ? origin.position : Vector3.zero;
-        transform.position = new Vector3(basePos.x + _smoothedPos.x, basePos.y + _smoothedPos.y);
+        Vector3 finalBase = origin != null ? origin.position : Vector3.zero;
+        transform.position = new Vector3(finalBase.x + _smoothedPos.x, finalBase.y + _smoothedPos.y);
     }
 
     private Vector2 MapToWorld(float rawX, float rawY)
     {
-        // applying the deadzone
         float nx = Mathf.Abs(rawX) < deadzone ? 0f : rawX;
         float ny = Mathf.Abs(rawY) < deadzone ? 0f : rawY;
-
 
         float normX = Mathf.Clamp(nx / rangeX, -1f, 1f);
         float normY = Mathf.Clamp(ny / rangeY, -1f, 1f);
 
-        // scales the deadzone to the game world sizing
         return new Vector2(normX * gameWidth, normY * gameHeight);
     }
 }
