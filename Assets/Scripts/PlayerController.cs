@@ -1,57 +1,38 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float thrustForce = 1f;
+    public Transform cursorTransform;
 
-    public float hmanRange = 0.1f;
+    public float maxSpeed = 8f;
 
-    public float hmanDeadzone = 0.005f;
+    // How tightly the chef snaps to the cursor position. Higher = less glide
+    public float followSharpness = 15f;
 
     Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
+        rb.linearDamping = 0f;
     }
 
-    void Update(
-        
-    )
+    void FixedUpdate()
     {
-        bool useHman = HManConnection.Instance != null && HManConnection.Instance.IsConnected;
-        if (useHman)
-        Debug.Log($"HMAN raw: {HManConnection.Instance.LocationX}, {HManConnection.Instance.LocationY}");
+        if (cursorTransform == null) return;
 
-        Vector2? direction = useHman ? GetHmanDirection() : GetMouseDirection();
+        Vector2 offset = (Vector2)cursorTransform.position - (Vector2)transform.position;
+        transform.up = offset.normalized;
 
-        if (direction.HasValue)
-        {
-            transform.up = direction.Value;
-            rb.AddForce(direction.Value * thrustForce);
-        }
+        Vector2 desiredVelocity = offset * followSharpness;
+        desiredVelocity = Vector2.ClampMagnitude(desiredVelocity, maxSpeed);
+
+        rb.linearVelocity = desiredVelocity;
     }
 
-    private Vector2? GetHmanDirection()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        float x = HManConnection.Instance.LocationX;
-        float y = HManConnection.Instance.LocationY;
-        Vector2 raw = new Vector2(x, y);
 
-        if (raw.magnitude < hmanDeadzone) return null; 
-
-        return (raw / hmanRange).normalized;
     }
-
-    private Vector2? GetMouseDirection()
-    {
-        if (!Mouse.current.leftButton.isPressed) return null;
-
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
-        return ((Vector2)(mousePos - transform.position)).normalized;
-    }
-
-    
-
 }
