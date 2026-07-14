@@ -54,6 +54,7 @@ public class PickupItem : MonoBehaviour
         coll.isTrigger = false;
         sr.enabled = true;
         player.SetEquippedItem(PlayerController.EquippedIngredients.None);
+        da.SetEquippedItem(itemType);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
