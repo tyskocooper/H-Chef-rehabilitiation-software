@@ -9,6 +9,14 @@ public class PlayerController : MonoBehaviour
     // How tightly the chef snaps to the cursor position. Higher = less glide
     public float followSharpness = 15f;
 
+    public enum EquippedIngredients
+    {
+        None,
+        Onion
+    }
+
+    
+
     Rigidbody2D rb;
 
     void Start()
@@ -34,5 +42,22 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
 
+
     }
+
+    //ingredient pick ups
+
+    public SpriteRenderer chefRenderer;
+    public Sprite normalSprite;
+    public Sprite onionSprite;
+
+    public void SetEquippedItem(EquippedIngredients item)
+    {
+        chefRenderer.sprite = item switch
+        {
+        EquippedIngredients.Onion => onionSprite,
+        _=> normalSprite
+        };
+    }
+
 }
