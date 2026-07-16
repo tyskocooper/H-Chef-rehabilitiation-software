@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: c5fd16f7781899542865434d6db1c62a
+guid: ef2b86d8376e05c4e9f3ec2a5b410fee
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1955171307688956578
+    second: cheftopdown_0
+  - first:
+      213: -7573573470588227579
+    second: cheftopdown_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -110,57 +116,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ingredients_0
+      name: cheftopdown_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 124
-        width: 42
-        height: 59
+        x: 5
+        y: 164
+        width: 38
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7a99718df3485e646a84b5e5aa5d71d7
-      internalID: 653201536
+      spriteID: e5de92afd06ddd4e0800000000000000
+      internalID: -1955171307688956578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ingredients_1
+      name: cheftopdown_1
       rect:
         serializedVersion: 2
-        x: 140
-        y: 122
-        width: 21
-        height: 66
+        x: 74
+        y: 164
+        width: 38
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f4c8525a9a4122e469beefc91b247d1c
-      internalID: -1150696043
+      spriteID: 50034451e0345e690800000000000000
+      internalID: -7573573470588227579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ingredients_2
+      name: cheftopdown_2
       rect:
         serializedVersion: 2
-        x: 21
-        y: 29
-        width: 61
-        height: 59
+        x: 8
+        y: 126
+        width: 38
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,8 +175,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e4790ad4df42f64091b75af0ba34ee7
-      internalID: 1712402324
+      spriteID: ce3d6b2f5a90c9940b4e525a7aed4776
+      internalID: 409058582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cheftopdown_3
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 67
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07230a6b55b721543b080f1de784cb75
+      internalID: 167533844
       vertices: []
       indices: 
       edges: []
@@ -179,7 +207,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6fa7de90fa5d9b646bf28d1ec67be0ac
+    spriteID: 5f07d7601b3d1394f9d9a316b60ad26c
     internalID: 0
     vertices: []
     indices: 
@@ -191,9 +219,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      ingredients_0: 653201536
-      ingredients_1: -1150696043
-      ingredients_2: 1712402324
+      cheftopdown_0: -1955171307688956578
+      cheftopdown_1: -7573573470588227579
+      cheftopdown_2: 409058582
+      cheftopdown_3: 167533844
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

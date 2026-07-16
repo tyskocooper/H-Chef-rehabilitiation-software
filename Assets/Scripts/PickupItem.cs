@@ -4,7 +4,7 @@ public class PickupItem : MonoBehaviour
 {
     public PlayerController player;
     public BoxCollider2D coll;
-    public DropArea da;
+    public DropArea[] dropAreas;
 
     public SpriteRenderer sr;
 
@@ -31,9 +31,13 @@ public class PickupItem : MonoBehaviour
         }
         else
         {
-            if (da.areaCollider.OverlapPoint(player.transform.position))
+            foreach (DropArea da in dropAreas)
             {
-                Drop();
+                if (da.itemType == itemType && da.areaCollider.OverlapPoint(player.transform.position))
+                {
+                    Drop(da);
+                    break;
+                }
             }
         }
     }
@@ -44,17 +48,15 @@ public class PickupItem : MonoBehaviour
         coll.isTrigger = true;
         sr.enabled = false;
         player.SetEquippedItem(itemType);
-        
-        
     }
 
-    private void Drop()
+    private void Drop(DropArea da)
     {
         equipped = false;
         coll.isTrigger = false;
         sr.enabled = true;
         player.SetEquippedItem(PlayerController.EquippedIngredients.None);
-        da.SetEquippedItem(itemType);
+        da.AcceptItem(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

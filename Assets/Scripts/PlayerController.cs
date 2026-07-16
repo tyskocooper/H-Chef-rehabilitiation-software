@@ -12,7 +12,11 @@ public class PlayerController : MonoBehaviour
     public enum EquippedIngredients
     {
         None,
-        Onion
+        Onion,
+
+        Carrot,
+
+        choppedOnion,
     }
 
     
@@ -26,7 +30,7 @@ public class PlayerController : MonoBehaviour
         rb.linearDamping = 0f;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (cursorTransform == null) return;
 
@@ -51,12 +55,15 @@ public class PlayerController : MonoBehaviour
     public Sprite normalSprite;
     public Sprite onionSprite;
 
+    public Sprite choppedOnionSprite;
+
     public void SetEquippedItem(EquippedIngredients item)
     {
         chefRenderer.sprite = item switch
         {
         EquippedIngredients.Onion => onionSprite,
         _=> normalSprite
+
         };
     }
 

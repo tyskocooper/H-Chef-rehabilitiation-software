@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DropArea : MonoBehaviour
@@ -16,6 +18,23 @@ public class DropArea : MonoBehaviour
 
 
     public bool equipped;
+
+    [System.Serializable]
+    public class ItemSprite
+    {
+        public PlayerController.EquippedIngredients itemType;
+        public Sprite sprite;
+    }
+
+    public List<ItemSprite> itemSprites;
+    public Sprite emptySprite;
+
+    public GameObject choppedItem;
+    public float chopTime = 2f;
+
+
+    //Coroutine is a function that can suspend its execution (yield) unitl the YieldInstruction finishes
+    private Coroutine choppingRoutine;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,14 +58,51 @@ public class DropArea : MonoBehaviour
     {
         Debug.Log("DropArea SetEquippedItem called with: " + item);
         
-        dropOffRenderer.sprite = item switch
-        {
-        PlayerController.EquippedIngredients.Onion => onionSprite,
+        Sprite spriteToShow = emptySprite;
 
-        _ => normalSprite
-        };
+        foreach (var entry in itemSprites)
+        {
+            if (entry.itemType == item)
+            {
+                spriteToShow = entry.sprite;
+                break;
+            }
+        }
+
+        dropOffRenderer.sprite = spriteToShow;
+    }
+    
+
+    public void AcceptItem(PickupItem item)
+    {
+        SetEquippedItem(item.itemType);
+        
+        if (choppingRoutine != null)
+        {
+            StopCoroutine(choppingRoutine);
+        }
+        choppingRoutine = StartCoroutine(ChopRoutine(item));
+
     }
 
+    //IEnumerator is the return tyoe for a coroutine. 
+    private IEnumerator ChopRoutine(PickupItem item)
+    {
+        yield return new WaitForSeconds(chopTime);
+
+    
+        Destroy(item.gameObject);
+
+        //Insantiate creates a copy of the choppedItem gameObject(like dragging a prefab into the hierarchry midgame)
+        //added if statment so to prevent unprompted copies
+        
+        if (choppedItem != null)
+        {
+            SetEquippedItem(PlayerController.EquippedIngredients.None);
+            Instantiate(choppedItem, transform.position, Quaternion.identity);
+        }
+        choppingRoutine = null;
+    }
 }
 
 
