@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class DropArea : MonoBehaviour
@@ -56,7 +57,6 @@ public class DropArea : MonoBehaviour
 
     public void SetEquippedItem(PlayerController.EquippedIngredients item)
     {
-        Debug.Log("DropArea SetEquippedItem called with: " + item);
         
         Sprite spriteToShow = emptySprite;
 
@@ -92,6 +92,22 @@ public class DropArea : MonoBehaviour
         SetEquippedItem(itemType);
         player.SetEquippedItem(PlayerController.EquippedIngredients.None);
         ScoreManager.Instance.AddPoints(1);
+
+        if(resetRoutine !=null)
+        {
+            StopCoroutine(resetRoutine);
+        }
+        resetRoutine = StartCoroutine(ResetAfterServing());
+
+    }
+
+    private Coroutine resetRoutine;
+
+    private IEnumerator ResetAfterServing()
+    {
+        yield return new WaitForSeconds(1f); // pausing to give the player enough time to see the finished dish
+        SetEquippedItem(PlayerController.EquippedIngredients.None);
+        resetRoutine = null;
     }
 
     //IEnumerator is the return tyoe for a coroutine. 

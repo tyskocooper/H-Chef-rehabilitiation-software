@@ -24,6 +24,10 @@ public class PickupItem : MonoBehaviour
     {
         if (!equipped)
         {
+            if(player.CurrentIngredient != PlayerController.EquippedIngredients.None)
+            {
+                return; //this fixes a bug where the player was equipping multiple stacked empty bowls and therefore unable to serve soup
+            }
             Vector2 distanceToPlayer = player.transform.position - transform.position;
             if (distanceToPlayer.magnitude <= pickUpRange)
             {
