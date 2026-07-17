@@ -85,6 +85,15 @@ public class DropArea : MonoBehaviour
 
     }
 
+    public void AcceptFromPlayer(PlayerController player)
+    {
+        if (player.CurrentIngredient != itemType) return;
+
+        SetEquippedItem(itemType);
+        player.SetEquippedItem(PlayerController.EquippedIngredients.None);
+        ScoreManager.Instance.AddPoints(1);
+    }
+
     //IEnumerator is the return tyoe for a coroutine. 
     private IEnumerator ChopRoutine(PickupItem item)
     {

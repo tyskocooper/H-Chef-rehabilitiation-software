@@ -143,7 +143,7 @@ TextureImporter:
         serializedVersion: 2
         x: 74
         y: 164
-        width: 38
+        width: 49
         height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -185,10 +185,10 @@ TextureImporter:
       name: cheftopdown_3
       rect:
         serializedVersion: 2
-        x: 12
-        y: 67
-        width: 7
-        height: 7
+        x: 5
+        y: 75
+        width: 38
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,6 +199,28 @@ TextureImporter:
       bones: []
       spriteID: 07230a6b55b721543b080f1de784cb75
       internalID: 167533844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cheftopdown_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 32
+        width: 38
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27faf3b82032ac548869d12e45336722
+      internalID: 49437556
       vertices: []
       indices: 
       edges: []
@@ -223,6 +245,7 @@ TextureImporter:
       cheftopdown_1: -7573573470588227579
       cheftopdown_2: 409058582
       cheftopdown_3: 167533844
+      cheftopdown_4: 49437556
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

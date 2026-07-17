@@ -5,6 +5,7 @@ public class PickupItem : MonoBehaviour
     public PlayerController player;
     public BoxCollider2D coll;
     public DropArea[] dropAreas;
+    public BoilingPot[] boilingPots;
 
     public SpriteRenderer sr;
 
@@ -33,10 +34,21 @@ public class PickupItem : MonoBehaviour
         {
             foreach (DropArea da in dropAreas)
             {
+                
                 if (da.itemType == itemType && da.areaCollider.OverlapPoint(player.transform.position))
                 {
+        
                     Drop(da);
                     break;
+                }
+            }
+
+            foreach (BoilingPot bp in boilingPots)
+            {    Debug.Log($"Checking pot overlap: {bp.areaCollider.OverlapPoint(player.transform.position)}, player pos: {player.transform.position}");
+                if(bp.areaCollider.OverlapPoint(player.transform.position))
+                {
+                    DropIntoPot(bp);
+                    return;
                 }
             }
         }
@@ -57,6 +69,15 @@ public class PickupItem : MonoBehaviour
         sr.enabled = true;
         player.SetEquippedItem(PlayerController.EquippedIngredients.None);
         da.AcceptItem(this);
+    }
+
+    private void DropIntoPot(BoilingPot bp)
+    {
+        equipped = false;
+        coll.isTrigger = false;
+        sr.enabled = true;
+        player.SetEquippedItem(PlayerController.EquippedIngredients.None);
+        bp.AcceptItem(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

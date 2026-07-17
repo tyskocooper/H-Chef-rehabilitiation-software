@@ -17,10 +17,15 @@ public class PlayerController : MonoBehaviour
         Carrot,
 
         choppedOnion,
+
+        emptyBowl,
+
+        FilledBowl,
     }
 
+    public DropArea[] serviceAreas;
     
-
+    public EquippedIngredients CurrentIngredient {get; private set;} = EquippedIngredients.None;
     Rigidbody2D rb;
 
     void Start()
@@ -41,6 +46,18 @@ public class PlayerController : MonoBehaviour
         desiredVelocity = Vector2.ClampMagnitude(desiredVelocity, maxSpeed);
 
         rb.linearVelocity = desiredVelocity;
+
+        foreach (DropArea area in serviceAreas)
+        {
+            if (area.areaCollider.OverlapPoint(transform.position))
+            {
+                if(area.areaCollider.OverlapPoint(transform.position))
+                {
+                    area.AcceptFromPlayer(this);
+                    break;
+                }
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -57,11 +74,19 @@ public class PlayerController : MonoBehaviour
 
     public Sprite choppedOnionSprite;
 
+    public Sprite emptyBowl;
+
+    public Sprite filledBowl;
+
     public void SetEquippedItem(EquippedIngredients item)
     {
+        CurrentIngredient = item;
         chefRenderer.sprite = item switch
         {
         EquippedIngredients.Onion => onionSprite,
+        EquippedIngredients.choppedOnion => choppedOnionSprite,
+        EquippedIngredients.emptyBowl => emptyBowl,
+        EquippedIngredients.FilledBowl => filledBowl, 
         _=> normalSprite
 
         };
