@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
@@ -18,8 +19,10 @@ public class Countdown : MonoBehaviour
             if (remainingTime <= 0)
             {
                 remainingTime = 0;
+                
 
-                //Game over();
+                GameOver();
+            
                 timerText.color = Color.red;
             }
          }
@@ -28,5 +31,10 @@ public class Countdown : MonoBehaviour
         int seconds = Mathf.FloorToInt(remainingTime % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
+        
         }
+        private void GameOver()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

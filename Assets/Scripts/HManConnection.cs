@@ -58,7 +58,7 @@ public class HManConnection : MonoBehaviour
         }
     }
 }
-    void FixedUpdate()
+    void Update()
     {
         if (!IsConnected || CurrentState != HManState.ExerciseRunning) return;
 
