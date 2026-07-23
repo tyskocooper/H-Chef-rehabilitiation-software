@@ -25,6 +25,14 @@ public class BoilingPot : MonoBehaviour
 
     private Coroutine boilingRoutine;
 
+
+       // calling chopping minigame and repurposing as stiring
+    public ChoppingMinigame stirringMinigame;
+
+    private bool isStirring = false;
+    private bool hasStirred = false;
+
+
     void Start()
     {
        
@@ -44,6 +52,7 @@ public class BoilingPot : MonoBehaviour
         if (state == PotState.Empty && item.itemType == PlayerController.EquippedIngredients.choppedOnion)
         {
             if (boilingRoutine != null) return;
+            hasStirred = false;
             boilingRoutine = StartCoroutine(OnionBoilRoutine(item));
             return;
         }
@@ -58,6 +67,7 @@ public class BoilingPot : MonoBehaviour
         // all other ingredients are ignored
     }
 
+
     private IEnumerator OnionBoilRoutine(PickupItem item)
     {
         state = PotState.Boiling;
@@ -66,6 +76,7 @@ public class BoilingPot : MonoBehaviour
         Destroy(item.gameObject);
 
         yield return new WaitForSeconds(onionBoilTime);
+        yield return new WaitUntil(() => hasStirred);
 
         state = PotState.PotReady;
         UpdateSprite();
@@ -87,6 +98,25 @@ public class BoilingPot : MonoBehaviour
         //pot resets after dishing out, ready for another onion
         state = PotState.Empty;
         UpdateSprite();
+    }
+
+    public void TryStir()
+    {
+        Debug.Log($"TryStir called. state={state}, hasStirred={hasStirred}, isStirring={isStirring}, minigameNull={stirringMinigame == null}");
+        if (state != PotState.Boiling || hasStirred || isStirring || stirringMinigame == null) return;
+
+        isStirring = true;
+        Debug.Log("Launching stirring minigame");
+
+        Vector3 screenCentre = Camera.main.transform.position;
+        screenCentre.z = 0f;
+        stirringMinigame.StartMinigame(screenCentre, FinishStirring);
+    }
+
+    private void FinishStirring()
+    {
+      hasStirred = true;
+      isStirring = false;
     }
 
     private void UpdateSprite()

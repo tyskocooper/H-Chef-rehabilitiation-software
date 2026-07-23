@@ -21,6 +21,7 @@ public class PrepArea : MonoBehaviour
         float dist = Vector2.Distance(cursorTransform.position, transform.position);
         if (dist <= hitRadius)
         {
+            Debug.Log($"PrepArea hit! {gameObject.name}");
             hit = true;
             onHit?.Invoke(this);
             gameObject.SetActive(false);

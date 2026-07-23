@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public DropArea[] serviceAreas;
+    public BoilingPot[] boilingPots;
     
     public EquippedIngredients CurrentIngredient {get; private set;} = EquippedIngredients.None;
     Rigidbody2D rb;
@@ -67,7 +68,19 @@ public class PlayerController : MonoBehaviour
                     area.AcceptFromPlayer(this);
                     break;
                 }
-            }
+              }
+        }
+
+          foreach (BoilingPot bp in boilingPots)
+        {   
+            Debug.Log($"Checking BoilingPot overlap: {bp.areaCollider.OverlapPoint(transform.position)}, player pos: {transform.position}");
+
+            if (bp.areaCollider.OverlapPoint(transform.position))
+            {
+                bp.TryStir();
+                    break;
+                
+              }
         }
     }
 

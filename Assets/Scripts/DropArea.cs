@@ -87,7 +87,7 @@ public class DropArea : MonoBehaviour
 
         if (choppingMinigame != null)
         {
-            Vector3 screenCentre = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, Camera.main.nearClipPlane + 10f));
+            Vector3 screenCentre = Camera.main.transform.position;
             screenCentre.z = 0f;
             choppingMinigame.StartMinigame(screenCentre, () => FinishChopping(item));
         }
