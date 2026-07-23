@@ -34,6 +34,10 @@ public class DropArea : MonoBehaviour
     public float chopTime = 2f;
 
 
+   // calling chopping minigame
+    public ChoppingMinigame choppingMinigame;
+
+
     //Coroutine is a function that can suspend its execution (yield) unitl the YieldInstruction finishes
     private Coroutine choppingRoutine;
 
@@ -76,13 +80,35 @@ public class DropArea : MonoBehaviour
     public void AcceptItem(PickupItem item)
     {
         SetEquippedItem(item.itemType);
-        
+
         if (choppingRoutine != null)
         {
             StopCoroutine(choppingRoutine);
         }
-        choppingRoutine = StartCoroutine(ChopRoutine(item));
 
+        if (choppingMinigame != null)
+        {
+            Vector3 screenCentre = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, Camera.main.nearClipPlane + 10f));
+            screenCentre.z = 0f;
+            choppingMinigame.StartMinigame(screenCentre, () => FinishChopping(item));
+        }
+        else
+        {
+            choppingRoutine = StartCoroutine(ChopRoutine(item));
+        }
+    }
+
+    private void FinishChopping(PickupItem item)
+    {
+        if (item == null) return;
+        
+        item.gameObject.SetActive(false);
+
+        if(choppedItem != null)
+        {
+            SetEquippedItem(PlayerController.EquippedIngredients.None);
+            Instantiate(choppedItem, transform.position, Quaternion.identity);
+        }
     }
 
     public void AcceptFromPlayer(PlayerController player)

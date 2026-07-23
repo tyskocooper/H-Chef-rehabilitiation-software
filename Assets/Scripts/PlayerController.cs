@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     // How tightly the chef snaps to the cursor position. Higher = less glide
     public float followSharpness = 15f;
 
+    //options to lock the chef sprite when a minigame is active
+    public bool inputLocked = false;
+
+
     public enum EquippedIngredients
     {
         None,
@@ -35,9 +39,16 @@ public class PlayerController : MonoBehaviour
         rb.linearDamping = 0f;
     }
 
+    // input locked sets velocity to zero so that the chef doesnt follow the cursor
+    public void setInputLocked(bool locked)
+    {
+        inputLocked = locked;
+        if (locked) rb.linearVelocity = Vector2.zero;
+    }
+
     void Update()
     {
-        if (cursorTransform == null) return;
+        if (inputLocked || cursorTransform == null) return;
 
         Vector2 offset = (Vector2)cursorTransform.position - (Vector2)transform.position;
         transform.up = offset.normalized;
