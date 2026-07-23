@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 361b0dee82cb09a438b3ebb10b0d9ec3
+guid: e987376fad527804d8f845c1c64ff687
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639204311984470596
+  platformSettingsDirtyTick: 639204378363602783
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: floortile
+  - name: Pantry
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.7873563, y: -6.051282}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
-      height: 32
-    spriteID: 9feb2dd4f55128146b907c61fc7dce99
+      width: 174
+      height: 39
+    spriteID: b0afc800a98f3e441888db58041c58b0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -149,7 +149,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: floortile_0
+  - name: Pantry_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -159,9 +159,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
-      height: 32
-    spriteID: ebba8a30c868ed546a923fbeafcb2213
+      width: 174
+      height: 39
+    spriteID: c10f7337fb789f54daf014864076a6e9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -174,25 +174,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 595918952
+      value0: 2136692726
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: floortile
+    name: Pantry
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: floortile
+    - name: Pantry
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: 9feb2dd4f55128146b907c61fc7dce99
+        x: 13
+        y: 236
+        width: 174
+        height: 39
+      spriteId: b0afc800a98f3e441888db58041c58b0
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -238,5 +238,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
-  previousTextureSize: {x: 64, y: 64}
+  canvasSize: {x: 300, y: 300}
+  previousTextureSize: {x: 256, y: 64}
