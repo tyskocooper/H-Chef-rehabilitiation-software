@@ -25,6 +25,10 @@ public class ChoppingMinigame : MonoBehaviour
     // hit tracker that decreases upon each target hit by the cursor
     private int hitsRemaining;
 
+    //allows me to have one target active a time to encourage the prescribed motion
+    private int currentTarget;
+
+
 
     //onComplete lets me call a method to run AFTER the minigame has completed
     private System.Action onComplete;
@@ -54,23 +58,34 @@ public class ChoppingMinigame : MonoBehaviour
         
             GameObject targetObj = Instantiate(chopTarget, spawnPosition, Quaternion.identity);
             PrepArea target = targetObj.GetComponent<PrepArea>();
-            //target.cursor transform informs the target of the cursor position 
-            target.cursorTransform = cursorTransform;
-
+           
             //TargetHit is now  a callback I can use in PrepArea when a target is hit
             target.onHit = TargetHit;
             //stores the number of targets I add in the inspector
             activeTargets.Add(target);
 
         }
+
+        EnableCurrentTarget();
         
         
+    }
+
+    private void EnableCurrentTarget()
+    {
+        Debug.Log($"enabling current target");
+        for (int i = 0; i < activeTargets.Count; i++)
+        {
+             //target.cursor transform informs the target of the cursor position 
+            activeTargets[i].cursorTransform = (i == currentTarget) ? cursorTransform: null;
+        }
     }
 
     private void TargetHit(PrepArea zone)
     {
         //reduces the counter of hits remaining
         hitsRemaining--;
+        currentTarget ++;
 
         //if hits remaining equals 0 
         if(hitsRemaining <=0)
@@ -81,6 +96,10 @@ public class ChoppingMinigame : MonoBehaviour
             if (player != null) player.setInputLocked(false);
             onComplete?.Invoke();
         
+        }
+        else
+        {
+            EnableCurrentTarget();
         }
     }
 

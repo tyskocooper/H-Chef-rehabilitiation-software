@@ -102,11 +102,9 @@ public class BoilingPot : MonoBehaviour
 
     public void TryStir()
     {
-        Debug.Log($"TryStir called. state={state}, hasStirred={hasStirred}, isStirring={isStirring}, minigameNull={stirringMinigame == null}");
         if (state != PotState.Boiling || hasStirred || isStirring || stirringMinigame == null) return;
 
         isStirring = true;
-        Debug.Log("Launching stirring minigame");
 
         Vector3 screenCentre = Camera.main.transform.position;
         screenCentre.z = 0f;
