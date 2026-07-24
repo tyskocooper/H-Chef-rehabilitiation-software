@@ -25,6 +25,8 @@ public class HManConnection : MonoBehaviour
     public float startingResistance = 20f;
     public float resistanceIncrement = 10f;
 
+    public float maxResistance = 100f;
+
     private float currentResistance;
 
 
@@ -74,8 +76,8 @@ public class HManConnection : MonoBehaviour
 
     public void updateResistance(int score)
     {
-        currentResistance = Mathf.Min(startingResistance +(score * resistanceIncrement));
-         _comm.SetTarget("1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0");
+        currentResistance = Mathf.Min(startingResistance +(score * resistanceIncrement), maxResistance);
+         _comm.SetTarget("1", "0", "0", currentResistance.ToString(), "0", "0", "0", "0", "0", "0", "0", "1", "0");
         
     }
     void Update()
