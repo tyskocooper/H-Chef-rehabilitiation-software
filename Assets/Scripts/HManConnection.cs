@@ -82,6 +82,11 @@ public class HManConnection : MonoBehaviour
 
          _comm.SetTarget("1", "0", "0", currentResistance.ToString(), "0", "0", "0", "0", "0", "0", "0", "1", "0");
 
+         //restarts exercise with new difficulty
+
+         StopExercise();
+         RunExerciseWithResistance(1, currentResistance);
+
         
     }
 

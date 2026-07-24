@@ -198,6 +198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7963841cfdc3e488968ab6e28b7192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HManConnection
+  startingResistance: 20
+  resistanceIncrement: 10
+  maxResistance: 100
+  dishCompleteDiffJump: 3
 --- !u!1 &14994130
 GameObject:
   m_ObjectHideFlags: 0
@@ -3771,7 +3775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Countdown
   timerText: {fileID: 556882960}
-  remainingTime: 180
+  remainingTime: 120
 --- !u!114 &556882960
 MonoBehaviour:
   m_ObjectHideFlags: 0
