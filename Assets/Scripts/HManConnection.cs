@@ -76,8 +76,13 @@ public class HManConnection : MonoBehaviour
 
     public void updateResistance(int score)
     {
+        Debug.Log($"updateResistance called. IsConnected={IsConnected}, score={score}");
+
         currentResistance = Mathf.Min(startingResistance +(score * resistanceIncrement), maxResistance);
+        Debug.Log($"New resistance: {currentResistance}");
+
          _comm.SetTarget("1", "0", "0", currentResistance.ToString(), "0", "0", "0", "0", "0", "0", "0", "1", "0");
+
         
     }
     void Update()
