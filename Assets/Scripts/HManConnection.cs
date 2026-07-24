@@ -26,8 +26,10 @@ public class HManConnection : MonoBehaviour
     public float resistanceIncrement = 10f;
 
     public float maxResistance = 100f;
+    public int dishCompleteDiffJump = 3; //increased difficulty/resistance every 3 completed dishes
 
     private float currentResistance;
+    private int dishCompleteScore = 0;
 
 
 
@@ -48,42 +50,62 @@ public class HManConnection : MonoBehaviour
         if (connected)
         {
             currentResistance = startingResistance;
+            dishCompleteScore = 0;
 
-            RunExercise(1); // single target for now BUT can add multiple targets
+            RunExerciseWithResistance(1, currentResistance); // single target for now BUT can add multiple targets
         }
     }
 
     public void RunExercise(int numTargets)
-{
-    if (!IsConnected) return;
-
-    bool started = _comm.StartExercise(numTargets);
-    if (started)
     {
-   
-        bool targetSet = _comm.SetTarget("1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0");
+        if (!IsConnected) return;
 
-        if (targetSet)
-        {
-            CurrentState = HManState.ExerciseRunning;
-        }
-        else
-        {
-            Debug.LogError("SetTarget failed — H-MAN will not send response data.");
-        }
+        currentResistance = startingResistance;
+        dishCompleteScore = 0;
+        RunExerciseWithResistance(numTargets, currentResistance);
     }
-}
-
     public void updateResistance(int score)
+
     {
+        if(!IsConnected) return;
         Debug.Log($"updateResistance called. IsConnected={IsConnected}, score={score}");
 
-        currentResistance = Mathf.Min(startingResistance +(score * resistanceIncrement), maxResistance);
+        int criteriaMet = score/dishCompleteDiffJump;
+        int lastCriteriaMet = dishCompleteScore/dishCompleteDiffJump;
+
+        if (criteriaMet <= lastCriteriaMet) return;
+
+        dishCompleteScore = score;
+
+        currentResistance = Mathf.Min(startingResistance + (dishCompleteScore * resistanceIncrement), maxResistance);
         Debug.Log($"New resistance: {currentResistance}");
 
          _comm.SetTarget("1", "0", "0", currentResistance.ToString(), "0", "0", "0", "0", "0", "0", "0", "1", "0");
 
         
+    }
+
+    private void RunExerciseWithResistance (int numTargets, float resistance)
+    {
+        if (!IsConnected) return;
+
+        bool started = _comm.StartExercise(numTargets);
+        if (!started)
+        {
+            return;
+        }
+
+        bool targetSet = _comm.SetTarget("1", "0", "0", resistance.ToString(), "0", "0", "0", "0", "0", "0", "0", "1", "0");
+
+        if (targetSet)
+        {
+            CurrentState = HManState.ExerciseRunning;
+
+        }
+        else
+        {
+            Debug.LogError("Set target failed after resistance change");
+        }
     }
     void Update()
     {
