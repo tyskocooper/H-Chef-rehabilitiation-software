@@ -1,5 +1,6 @@
 using UnityEngine;
 using Articares.Core;
+using System;
 
 public class HManConnection : MonoBehaviour
 {
@@ -18,6 +19,16 @@ public class HManConnection : MonoBehaviour
     private const string HMan_IP = "192.168.102.1"; 
     private const int HMan_Port = 3000;
 
+
+    //experimenting with h-mans resistance settings
+
+    public float startingResistance = 20f;
+    public float resistanceIncrement = 10f;
+
+    private float currentResistance;
+
+
+
     void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
@@ -34,6 +45,8 @@ public class HManConnection : MonoBehaviour
 
         if (connected)
         {
+            currentResistance = startingResistance;
+
             RunExercise(1); // single target for now BUT can add multiple targets
         }
     }
@@ -58,6 +71,13 @@ public class HManConnection : MonoBehaviour
         }
     }
 }
+
+    public void updateResistance(int score)
+    {
+        currentResistance = Mathf.Min(startingResistance +(score * resistanceIncrement));
+         _comm.SetTarget("1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1", "0");
+        
+    }
     void Update()
     {
         if (!IsConnected || CurrentState != HManState.ExerciseRunning) return;

@@ -24,6 +24,11 @@ public class ScoreManager : MonoBehaviour
     {
         score += points; // adds points to the score
         UpdateScoreUI(); // updates the UI every time the score caanges
+
+        if(HManConnection.Instance != null)
+        {
+            HManConnection.Instance.updateResistance(score);
+        }
     }
 
     void UpdateScoreUI()
