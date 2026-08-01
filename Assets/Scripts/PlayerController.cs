@@ -1,57 +1,119 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float thrustForce = 1f;
+    public Transform cursorTransform;
 
-    public float hmanRange = 0.1f;
+    public float maxSpeed = 8f;
 
-    public float hmanDeadzone = 0.005f;
+    // How tightly the chef snaps to the cursor position. Higher = less glide
+    public float followSharpness = 15f;
 
+    //options to lock the chef sprite when a minigame is active
+    public bool inputLocked = false;
+
+
+    public enum EquippedIngredients
+    {
+        None,
+        Onion,
+
+        Carrot,
+
+        choppedOnion,
+
+        emptyBowl,
+
+        FilledBowl,
+    }
+
+    public DropArea[] serviceAreas;
+    public BoilingPot[] boilingPots;
+    
+    public EquippedIngredients CurrentIngredient {get; private set;} = EquippedIngredients.None;
     Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
+        rb.linearDamping = 0f;
     }
 
-    void Update(
-        
-    )
+    // input locked sets velocity to zero so that the chef doesnt follow the cursor
+    public void setInputLocked(bool locked)
     {
-        bool useHman = HManConnection.Instance != null && HManConnection.Instance.IsConnected;
-        if (useHman)
-        Debug.Log($"HMAN raw: {HManConnection.Instance.LocationX}, {HManConnection.Instance.LocationY}");
+        inputLocked = locked;
+        if (locked) rb.linearVelocity = Vector2.zero;
+    }
 
-        Vector2? direction = useHman ? GetHmanDirection() : GetMouseDirection();
+    void Update()
+    {
+        if (inputLocked || cursorTransform == null) return;
 
-        if (direction.HasValue)
+        Vector2 offset = (Vector2)cursorTransform.position - (Vector2)transform.position;
+        transform.up = offset.normalized;
+
+        Vector2 desiredVelocity = offset * followSharpness;
+        desiredVelocity = Vector2.ClampMagnitude(desiredVelocity, maxSpeed);
+
+        rb.linearVelocity = desiredVelocity;
+
+        foreach (DropArea area in serviceAreas)
         {
-            transform.up = direction.Value;
-            rb.AddForce(direction.Value * thrustForce);
+            if (area.areaCollider.OverlapPoint(transform.position))
+            {
+                if(area.areaCollider.OverlapPoint(transform.position))
+                {
+                    area.AcceptFromPlayer(this);
+                    break;
+                }
+              }
+        }
+
+          foreach (BoilingPot bp in boilingPots)
+        {   
+            Debug.Log($"Checking BoilingPot overlap: {bp.areaCollider.OverlapPoint(transform.position)}, player pos: {transform.position}");
+
+            if (bp.areaCollider.OverlapPoint(transform.position))
+            {
+                bp.TryStir();
+                    break;
+                
+              }
         }
     }
 
-    private Vector2? GetHmanDirection()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        float x = HManConnection.Instance.LocationX;
-        float y = HManConnection.Instance.LocationY;
-        Vector2 raw = new Vector2(x, y);
 
-        if (raw.magnitude < hmanDeadzone) return null; 
 
-        return (raw / hmanRange).normalized;
     }
 
-    private Vector2? GetMouseDirection()
+    //ingredient pick ups
+
+    public SpriteRenderer chefRenderer;
+    public Sprite normalSprite;
+    public Sprite onionSprite;
+
+    public Sprite choppedOnionSprite;
+
+    public Sprite emptyBowl;
+
+    public Sprite filledBowl;
+
+    public void SetEquippedItem(EquippedIngredients item)
     {
-        if (!Mouse.current.leftButton.isPressed) return null;
+        CurrentIngredient = item;
+        chefRenderer.sprite = item switch
+        {
+        EquippedIngredients.Onion => onionSprite,
+        EquippedIngredients.choppedOnion => choppedOnionSprite,
+        EquippedIngredients.emptyBowl => emptyBowl,
+        EquippedIngredients.FilledBowl => filledBowl, 
+        _=> normalSprite
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
-        return ((Vector2)(mousePos - transform.position)).normalized;
+        };
     }
-
-    
 
 }
