@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Countdown : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class Countdown : MonoBehaviour
         }
         private void GameOver()
     {
-        SceneManager.LoadScene(0);
+       var serviceOver = FindAnyObjectByType<ServiceOver>(FindObjectsInactive.Include);
+        serviceOver.ServiceComplete(ScoreManager.score);
     }
 }
