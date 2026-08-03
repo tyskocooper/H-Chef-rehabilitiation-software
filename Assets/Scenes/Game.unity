@@ -14835,11 +14835,11 @@ Transform:
   m_GameObject: {fileID: 1753921685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0, z: 0}
+  m_LocalPosition: {x: 0.010000229, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2060016304}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1769601175
 GameObject:
@@ -17804,7 +17804,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1009892572}
-  - {fileID: 1753921686}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2060016305
@@ -17821,8 +17820,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HmanCursor
   connection: {fileID: 10705788}
   deadzone: 0.005
-  rangeX: 0.15
-  rangeY: 0.15
+  rangeX: 0.05
+  rangeY: 0.05
   origin: {fileID: 1753921686}
   gameWidth: 12
   gameHeight: 6
@@ -18394,6 +18393,7 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1753921686}
   - {fileID: 1291513545}
   - {fileID: 1234083899}
   - {fileID: 1237682922}

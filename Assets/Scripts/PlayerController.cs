@@ -4,10 +4,10 @@ public class PlayerController : MonoBehaviour
 {
     public Transform cursorTransform;
 
-    public float maxSpeed = 8f;
+    public float maxSpeed = 4f;
 
     // How tightly the chef snaps to the cursor position. Higher = less glide
-    public float followSharpness = 15f;
+    public float followSharpness = 6f;
 
     //options to lock the chef sprite when a minigame is active
     public bool inputLocked = false;
@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour
 
           foreach (BoilingPot bp in boilingPots)
         {   
-            Debug.Log($"Checking BoilingPot overlap: {bp.areaCollider.OverlapPoint(transform.position)}, player pos: {transform.position}");
 
             if (bp.areaCollider.OverlapPoint(transform.position))
             {
