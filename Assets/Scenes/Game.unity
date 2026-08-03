@@ -3910,7 +3910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Countdown
   timerText: {fileID: 556882960}
-  remainingTime: 10
+  remainingTime: 150
 --- !u!114 &556882960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4043,14 +4043,14 @@ MonoBehaviour:
   chopTarget: {fileID: 1829900098}
   cursorTransform: {fileID: 2060016304}
   targetOffsets:
-  - {x: 0, y: -3.5}
-  - {x: -4.5, y: -1}
-  - {x: -2, y: 3}
-  - {x: -5.5, y: 1.5}
-  - {x: -7, y: -2}
-  - {x: -5.5, y: -1.5}
-  - {x: -2, y: -3}
-  - {x: 0, y: -4}
+  - {x: -2, y: -1.25}
+  - {x: -2.4, y: 1.5}
+  - {x: -4.5, y: 2.5}
+  - {x: -6.8, y: 1.7}
+  - {x: -7.9, y: -0.5}
+  - {x: -7.2, y: -3}
+  - {x: -5, y: -4.5}
+  - {x: -3, y: -4}
   minigameBackground: {fileID: 1500583494}
   player: {fileID: 1237682924}
 --- !u!4 &558140688
