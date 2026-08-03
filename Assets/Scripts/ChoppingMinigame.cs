@@ -21,12 +21,16 @@ public class ChoppingMinigame : MonoBehaviour
     public PlayerController player;
 
 
+
     
     // hit tracker that decreases upon each target hit by the cursor
     private int hitsRemaining;
 
     //allows me to have one target active a time to encourage the prescribed motion
     private int currentTarget;
+
+   //chopping sound
+    public AudioSource audioSource;
 
 
 
@@ -86,6 +90,8 @@ public class ChoppingMinigame : MonoBehaviour
         //reduces the counter of hits remaining
         hitsRemaining--;
         currentTarget ++;
+        audioSource.Play();
+
 
         //if hits remaining equals 0 
         if(hitsRemaining <=0)

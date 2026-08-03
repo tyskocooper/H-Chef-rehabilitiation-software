@@ -7,6 +7,9 @@ public class ScoreManager : MonoBehaviour
     public static int score; //stores the score
     public TMP_Text scoreText;  //ui text display
 
+    public AudioSource audioSource; //bell ring upon completing order
+
+
 
 
     void Awake()
@@ -35,6 +38,8 @@ public class ScoreManager : MonoBehaviour
     void UpdateScoreUI()
     {
         scoreText.text = "" + score.ToString(); // display the score in the UI
+        audioSource.Play();
+
     }
 
 
