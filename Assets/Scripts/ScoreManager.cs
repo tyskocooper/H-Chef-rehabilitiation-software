@@ -11,11 +11,18 @@ public class ScoreManager : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
+              if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;  //allows me to decouple the score from the ui so I can have a two score ui's for ingame and game over
+
     }
 
     void Start()
     {
+        Debug.Log("ScoreManager Start() called - resetting score to 0. Called by: " + gameObject.name);
         score = 0; // sets score to zero at the beginning of the game
         UpdateScoreUI(); // update the UI with the initial score
     }
@@ -28,6 +35,9 @@ public class ScoreManager : MonoBehaviour
 
     void UpdateScoreUI()
     {
-        scoreText.text = "Score: " + score.ToString(); // display the score in the UI
+        scoreText.text = "" + score.ToString(); // display the score in the UI
     }
+
+
+
 }

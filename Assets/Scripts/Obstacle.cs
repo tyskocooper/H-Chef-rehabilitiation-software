@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    // global variables#
+    // global variables
 
     public float minSize = 0.5f;
     public float maxSize = 2.0f;
@@ -34,7 +34,7 @@ public class Obstacle : MonoBehaviour
        Vector2 randomDirection = Random.insideUnitCircle;
 
 
-       //assigNs the randomSpeed and randomDireciton variables above to RigidBody2D
+       //assigns the randomSpeed and randomDireciton variables above to RigidBody2D
 
        rb.AddForce(randomDirection * randomSpeed);
 
