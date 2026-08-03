@@ -162,54 +162,6 @@ Transform:
   - {fileID: 1385073686}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &10705786
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 10705787}
-  - component: {fileID: 10705788}
-  m_Layer: 0
-  m_Name: HMan
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &10705787
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10705786}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &10705788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10705786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b7963841cfdc3e488968ab6e28b7192, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HManConnection
-  startingResistance: 0
-  resistanceIncrement: 0
-  maxResistance: 0
-  dishCompleteDiffJump: 0
 --- !u!1 &14994130
 GameObject:
   m_ObjectHideFlags: 0
@@ -17818,7 +17770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565cd61e0fe2fad4488025ec5e9ebbe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HmanCursor
-  connection: {fileID: 10705788}
+  connection: {fileID: 0}
   deadzone: 0
   rangeX: 0.15
   rangeY: 0.15
@@ -18399,7 +18351,6 @@ SceneRoots:
   - {fileID: 1237682922}
   - {fileID: 717432548}
   - {fileID: 1817059409}
-  - {fileID: 10705787}
   - {fileID: 2060016304}
   - {fileID: 1105080}
   - {fileID: 1333320010873375560}
