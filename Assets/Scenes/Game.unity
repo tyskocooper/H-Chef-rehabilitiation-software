@@ -206,10 +206,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7963841cfdc3e488968ab6e28b7192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HManConnection
-  startingResistance: 20
-  resistanceIncrement: 10
-  maxResistance: 100
-  dishCompleteDiffJump: 3
+  startingResistance: 0
+  resistanceIncrement: 0
+  maxResistance: 0
+  dishCompleteDiffJump: 0
 --- !u!1 &14994130
 GameObject:
   m_ObjectHideFlags: 0
