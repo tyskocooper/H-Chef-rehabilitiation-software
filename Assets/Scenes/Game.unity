@@ -17819,9 +17819,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HmanCursor
   connection: {fileID: 10705788}
-  deadzone: 0.005
-  rangeX: 0.05
-  rangeY: 0.05
+  deadzone: 0
+  rangeX: 0.03
+  rangeY: 0.03
   origin: {fileID: 1753921686}
   gameWidth: 12
   gameHeight: 6
