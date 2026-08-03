@@ -1109,13 +1109,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1227474974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5885c54eabf2a040b1526db1e831a81, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e1ec3f8f81bc0540bc5fa9cc4a449af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoverToExit
   buttonCollider: {fileID: 1227474980}
   cursorTransform: {fileID: 390805858}
-  hoverTime: 3
-  exitButton: {fileID: 2041552069}
+  hoverTime: 1.5
+  startButton: {fileID: 2041552069}
+  serviceOver: {fileID: 0}
+  action: 1
 --- !u!1 &1281688679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1406,8 @@ MonoBehaviour:
   cursorTransform: {fileID: 390805858}
   hoverTime: 1.5
   startButton: {fileID: 2041552069}
+  serviceOver: {fileID: 0}
+  action: 0
 --- !u!61 &1357549971
 BoxCollider2D:
   m_ObjectHideFlags: 0

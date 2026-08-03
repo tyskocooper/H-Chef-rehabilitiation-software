@@ -11,6 +11,10 @@ public class HoverToClick : MonoBehaviour
         public float hoverTime = 1.5f;
 
         public StartButton startButton;
+        public ServiceOver serviceOver;
+
+        public enum ClickAction { Start, Exit, Restart, ExitToMenu}
+        public ClickAction action = ClickAction.Start;
 
 
         private bool triggered = false;
@@ -29,12 +33,28 @@ public class HoverToClick : MonoBehaviour
 
     if (isHovering)
     {
-        hoverTimer += Time.deltaTime;
+        //changed from deltaTime to unscaled deltatime
+        //this is because delta time does not count during ServiceOver as deltatime is set to 0f
+        hoverTimer += Time.unscaledDeltaTime;
+        
 
         if (hoverTimer >= hoverTime)
         {
             triggered = true;
+          
+
+            if (action == ClickAction.Start)
             startButton.onStartClick();
+
+            if(action == ClickAction.Exit)
+            startButton.OnExitClick();
+
+            if (action == ClickAction.Restart)
+            serviceOver.OnRestartPressed();
+
+            if (action == ClickAction.ExitToMenu)
+            serviceOver.OnExitPressed();
+            
         }
     }
     else

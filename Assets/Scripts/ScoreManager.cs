@@ -22,7 +22,6 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("ScoreManager Start() called - resetting score to 0. Called by: " + gameObject.name);
         score = 0; // sets score to zero at the beginning of the game
         UpdateScoreUI(); // update the UI with the initial score
     }
