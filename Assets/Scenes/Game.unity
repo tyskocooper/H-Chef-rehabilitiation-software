@@ -1019,7 +1019,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 21
+  m_SortingOrder: 51
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1649669319220892291, guid: 2179c84e8dce4534e9ad79d1dd8656e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3370,7 +3370,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 29
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2118865300695734090, guid: 7eddc7863f70c8a40a6c205d789c7d5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4061,7 +4061,7 @@ CircleCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 50
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -4131,7 +4131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Countdown
   timerText: {fileID: 556882960}
-  remainingTime: 120
+  remainingTime: 5
 --- !u!114 &556882960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7224,7 +7224,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 31
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2668810093040557452, guid: 0989eaa9d6a769a469cbe8b21c468a11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7621,7 +7621,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 30
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4978866250363850142, guid: cb9b401ffa1f3ac4794c72e60b9cc82c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9629,7 +9629,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 21
+  m_SortingOrder: 31
   m_MaskInteraction: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -10086,7 +10086,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 21
+  m_SortingOrder: 51
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3127448798928283936, guid: 2179c84e8dce4534e9ad79d1dd8656e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10585,7 +10585,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 25
+  m_SortingOrder: 60
   m_TargetDisplay: 0
 --- !u!224 &1307590397
 RectTransform:
@@ -12560,7 +12560,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 30
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6856864895186059828, guid: 55d8f4a9a92d3c1408ea8dd7ea1a0c8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13336,7 +13336,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 50
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1668867945913051535, guid: 86aa33d16d45d1549a45d363b6ccfcef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -16325,7 +16325,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 31
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4677796486579702378, guid: db0acad3db5bdda4a95af8b972bf392d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -16562,7 +16562,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 21
+  m_SortingOrder: 31
   m_MaskInteraction: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -18595,7 +18595,7 @@ CircleCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 50
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
