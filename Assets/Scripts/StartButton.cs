@@ -3,14 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Starts the game
     public void onStartClick()
     {
         SceneManager.LoadScene("Game");
         
     }
 
-    // Update is called once per frame
+    // Exits the game
     public void OnExitClick()
     {
 #if UNITY_EDITOR

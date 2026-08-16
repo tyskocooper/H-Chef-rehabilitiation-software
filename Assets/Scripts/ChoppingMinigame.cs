@@ -38,7 +38,8 @@ public class ChoppingMinigame : MonoBehaviour
     private System.Action onComplete;
 
     private List<PrepArea>activeTargets = new List<PrepArea>();
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    
     // centrePosition is the where minigame spawns in relation to
   
     public void StartMinigame(Vector3 centrePosition, System.Action onCompleteCallback)
@@ -75,9 +76,10 @@ public class ChoppingMinigame : MonoBehaviour
         
     }
 
+    //enforces sequential hit point activiation 
+    //only one hit point can be active at once
     private void EnableCurrentTarget()
     {
-        Debug.Log($"enabling current target");
         for (int i = 0; i < activeTargets.Count; i++)
         {
              //target.cursor transform informs the target of the cursor position 
@@ -88,6 +90,7 @@ public class ChoppingMinigame : MonoBehaviour
     private void TargetHit(PrepArea zone)
     {
         //reduces the counter of hits remaining
+        //activates chopping sound effect
         hitsRemaining--;
         currentTarget ++;
         audioSource.Play();
