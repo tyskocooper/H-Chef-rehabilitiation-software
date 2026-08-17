@@ -148,10 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7963841cfdc3e488968ab6e28b7192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HManConnection
-  startingResistance: 20
-  resistanceIncrement: 10
-  maxResistance: 100
-  dishCompleteDiffJump: 3
 --- !u!4 &188252794
 Transform:
   m_ObjectHideFlags: 0
@@ -366,11 +362,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565cd61e0fe2fad4488025ec5e9ebbe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HmanCursor
-  connection: {fileID: 0}
+  connection: {fileID: 188252793}
   deadzone: 0.005
   rangeX: 0.15
   rangeY: 0.15
-  origin: {fileID: 0}
+  origin: {fileID: 390805858}
   gameWidth: 12
   gameHeight: 6
   smoothing: 0.15
