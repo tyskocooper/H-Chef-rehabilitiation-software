@@ -8,10 +8,10 @@
 ## NAME
 H-CHEF
 ## Description
-H-Chef attempts to emulate a cooking environment through various movement exercises such as chopping and stirring with incremental difficulty. It also uses ‘pattern-matching’ techniques for recipes to inspire cognitive engagement. The overall aim is this H-Man game is to encourage the practice and improvement of movement exercises for stroke recovery patients. 
+H-Chef has been specifically designed to work with Articare's H-Man rehabilitation device which supports upper-body physical therapy. H-Chef attemps to emulate a cooking environment through various movement exercises such as chopping and stirring with incremental difficulty. It also uses ‘pattern-matching’ techniques for recipes to inspire cognitive engagement. The overall aim for this H-Man game is to encourage the practice and improvement of movement exercises for stroke recovery patients. 
 
 ## Installation
-After cloning the gitlab repository, you can launch the game via the GameLauncher file.
+After cloning this repository, you can launch the game via the GameLauncher file.
 If you wish to edit the project, you need to import the project to a UNITY Editor.
 
 ## Usage
