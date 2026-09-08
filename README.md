@@ -1,14 +1,13 @@
-<<<<<<< HEAD
-# UNITY HMAN
-=======
-# HMAN chef
->>>>>>> 1f66b4ee5bde255e8e8d4c630441f61124b1aedc
-
-
 ## NAME
 H-CHEF
 ## Description
 H-Chef has been specifically designed to work with Articare's H-Man rehabilitation device which supports upper-body physical therapy. H-Chef attemps to emulate a cooking environment through various movement exercises such as chopping and stirring with incremental difficulty. It also uses ‘pattern-matching’ techniques for recipes to inspire cognitive engagement. The overall aim for this H-Man game is to encourage the practice and improvement of movement exercises for stroke recovery patients. 
+
+
+##Screenshots
+<img width="856" height="480" alt="image" src="https://github.com/user-attachments/assets/a292828c-f499-4423-b155-9501f4f951c2" />
+<img width="856" height="497" alt="image" src="https://github.com/user-attachments/assets/3b644ec1-7ccb-400c-9d9a-bb1a438a2344" />
+
 
 ## Installation
 After cloning this repository, you can launch the game via the GameLauncher file.
