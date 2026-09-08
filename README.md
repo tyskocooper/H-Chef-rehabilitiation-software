@@ -4,7 +4,7 @@ H-CHEF
 H-Chef has been specifically designed to work with Articare's H-Man rehabilitation device which supports upper-body physical therapy. H-Chef attemps to emulate a cooking environment through various movement exercises such as chopping and stirring with incremental difficulty. It also uses ‘pattern-matching’ techniques for recipes to inspire cognitive engagement. The overall aim for this H-Man game is to encourage the practice and improvement of movement exercises for stroke recovery patients. 
 
 
-##Screenshots
+## Screenshots
 
 <img width="856" height="480" alt="image" src="https://github.com/user-attachments/assets/a292828c-f499-4423-b155-9501f4f951c2" />
 
