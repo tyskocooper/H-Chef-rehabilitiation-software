@@ -49,4 +49,4 @@ ServiceOver -> game over UI
 ## Acknowledgment
 I would like to thank Dr Damien Anderson for supervising this project.
 
-I would also like to thank Dr Andy Kerr and the bio-engineering department for facilitating this projects development.
+I would also like to thank Dr Andy Kerr and the bio-engineering department for facilitating this project's development.
